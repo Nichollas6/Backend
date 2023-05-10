@@ -1,0 +1,35 @@
+<?php
+
+// Lê a quantidade de valores
+$n = intval(fgets(STDIN));
+
+// Array para armazenar os valores lidos
+$valores = array();
+
+// Lê os valores e os armazena no array
+for ($i = 0; $i < $n; $i++) {
+    $valor = intval(fgets(STDIN));
+    $valores[] = $valor;
+}
+
+// Array para armazenar a contagem de cada valor
+$contagem = array();
+
+// Conta a ocorrência de cada valor
+foreach ($valores as $valor) {
+    if (!isset($contagem[$valor])) {
+        $contagem[$valor] = 0;
+    }
+    $contagem[$valor]++;
+}
+
+// Ordena os valores distintos em ordem crescente
+$distintos = array_keys($contagem);
+sort($distintos);
+
+// Imprime a contagem de cada valor
+foreach ($distintos as $valor) {
+    echo $valor . " aparece " . $contagem[$valor] . " vez(es)\n";
+}
+
+?>
